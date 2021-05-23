@@ -5,7 +5,7 @@
     </button>
     <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="index.php?include=index" class="nav-link">Beranda</a></li>
+            <li class="nav-item"><a href="index.php?include=index" class="nav-link">Beranda</a></li>
             <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
             <li class="nav-item"><a href="index.php?include=kontak" class="nav-link">Kontak</a></li>
             <li class="nav-item"><a href="index.php?include=tentang" class="nav-link">Tentang Kami</a></li>
