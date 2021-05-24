@@ -1,26 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Jadwal Janji InBarberShop</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="../css/animate.css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/magnific-popup.css">
-    <link rel="stylesheet" href="../css/aos.css">
-    <link rel="stylesheet" href="../css/ionicons.min.css">
-    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../css/jquery.timepicker.css">
-    <link rel="stylesheet" href="../css/flaticon.css">
-    <link rel="stylesheet" href="../css/icomoon.css">
-    <link rel="stylesheet" href="../css/style.css">
-</head> -->
-
 <body>
     <section class="ftco-section hero-wrap js-fullheight" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="1">
         <div class="overlay"></div>
@@ -53,7 +30,24 @@
                                 <input type="text" class="form-control" placeholder="Telepon">
                             </div>
                         </div>
-                        <select class="mdb-select md-form colorful-select dropdown-danger">
+                        <div class="d-md-flex">
+                            <div class="form-group">
+                                <div class="input-wrap">
+                                    <input list="harga" type="text" class="form-control" placeholder="Pilih Paket">
+                                    <datalist id="harga">
+                                        <option value="30k Kids Haircut"></option>
+                                        <option value="50k Gentlemen Cut"></option>
+                                        <option value="50k Wash, Massage & Hairspa"></option>
+                                        <option value="60k Gentlemen Grooming"></option>
+                                        <option value="90k Perm Hair Treatment"></option>
+                                        <option value="100k Basic Hair Color"></option>
+                                        <option value="100k Hair Repair Treatment"></option>
+                                        <option value="150k Grooming + Hair Tattoo"></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <select class="mdb-select md-form colorful-select dropdown-danger">
                             <option value="" disabled selected>Pilih Paket</option>
                             <option value="1">30k Kids Haircut</option>
                             <option value="2">50k Gentlemen Cut</option>
@@ -63,7 +57,7 @@
                             <option value="6">100k Basic Hair Color</option>
                             <option value="7">100k Hair Repair Treatment</option>
                             <option value="8">150k Grooming + Hair Tattoo</option>
-                        </select>
+                        </select> -->
                         <div class="form-group">
                             <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Pesan"></textarea>
                         </div>
@@ -77,10 +71,6 @@
         </div>
     </section>
 
-    <!-- <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
-        </svg></div> -->
     <script src="../js/jquery.min.js"></script>
     <script src="../js/jquery-migrate-3.0.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
