@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2021 at 06:27 AM
+-- Generation Time: May 25, 2021 at 06:31 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -54,22 +54,19 @@ INSERT INTO `tabel_blog` (`id_blog`, `id_kategori`, `judul`, `isi`, `insert_at`,
 
 CREATE TABLE `tabel_booking` (
   `id_booking` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
   `id_paket` int(11) NOT NULL,
   `tanggal_booking` date NOT NULL,
   `jam_booking` time NOT NULL,
   `keterangan_booking` text,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `update_by` varchar(100) DEFAULT NULL,
-  `update_at` timestamp(6) NULL DEFAULT NULL
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tabel_booking`
 --
 
-INSERT INTO `tabel_booking` (`id_booking`, `id_user`, `id_paket`, `tanggal_booking`, `jam_booking`, `keterangan_booking`, `time`, `update_by`, `update_at`) VALUES
-(1, 1, 1, '2021-05-16', '12:00:00', NULL, '2021-05-16 12:32:29', NULL, NULL);
+INSERT INTO `tabel_booking` (`id_booking`, `id_paket`, `tanggal_booking`, `jam_booking`, `keterangan_booking`, `time`) VALUES
+(1, 1, '2021-05-16', '12:00:00', NULL, '2021-05-16 12:32:29');
 
 -- --------------------------------------------------------
 
@@ -255,8 +252,7 @@ ALTER TABLE `tabel_blog`
 --
 ALTER TABLE `tabel_booking`
   ADD PRIMARY KEY (`id_booking`),
-  ADD KEY `id_paket` (`id_paket`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_paket` (`id_paket`);
 
 --
 -- Indexes for table `tabel_diskon`
