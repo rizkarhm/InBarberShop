@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2021 at 06:31 AM
+-- Generation Time: May 25, 2021 at 08:02 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -139,7 +139,8 @@ INSERT INTO `tabel_harga` (`id_paket`, `nama_paket`, `harga_paket`) VALUES
 (6, 'Wash, Massage & Hairspa', 50000),
 (7, 'Basic Hair Color', 100000),
 (8, 'Hair Repair Treatment', 100000),
-(9, 'Perm Hair Treatment\r\n', 90000);
+(9, 'Perm Hair Treatment\r\n', 90000),
+(11, 'All in', 97000);
 
 -- --------------------------------------------------------
 
@@ -227,12 +228,12 @@ CREATE TABLE `tabel_user` (
 --
 
 INSERT INTO `tabel_user` (`id_user`, `nama_user`, `telepon_user`, `email_user`, `password_user`, `level_user`, `foto_user`) VALUES
-(1, 'rizka', '087859159058', 'rizkarahma67@gmail.com', 'aef2c231d5e776c0e0656eaf68767848', 'admin', NULL),
-(2, 'Achmad Zulfikar', '087859150002', 'zulfikar@gmail.com', '994d1c236804d0a6a79e9bd55cd5d1f0', 'admin', NULL),
-(3, 'Hassan Jadi', '087823341110', 'hassan@gmail.com', 'f04e1fd4cbfeecfdce8aa2ad6e9cf4ac', 'user', NULL),
-(4, 'Citra Putri', '087823341110', 'citra@gmail.com', 'e260eab6a7c45d139631f72b55d8506b', 'admin', NULL),
-(5, 'M Yudha', '089609940201', 'yudha@gmail.com', '2b9633304de305ed5c03fe19b7a06afe', 'user', NULL),
-(6, 'Daffa A', '087859159077', 'daffa@gmail.com', '135a4e22cda0e0a68499e6d6e2a861aa', 'admin', NULL);
+(1, 'rizkaaa', '087859159058', 'rizkarahma67@gmail.com', 'aef2c231d5e776c0e0656eaf68767848', 'Superadmin', ''),
+(2, 'Achmad Zulfikar', '087859150002', 'zulfikar@gmail.com', '994d1c236804d0a6a79e9bd55cd5d1f0', 'Admin', NULL),
+(3, 'Hassan Jadi', '087823341110', 'hassan@gmail.com', 'f04e1fd4cbfeecfdce8aa2ad6e9cf4ac', 'Admin', NULL),
+(4, 'Citra Putri', '087823341110', 'citra@gmail.com', 'e260eab6a7c45d139631f72b55d8506b', 'Admin', NULL),
+(5, 'M Yudha', '089609940201', 'yudha@gmail.com', '2b9633304de305ed5c03fe19b7a06afe', 'Admin', NULL),
+(6, 'Daffa A', '087859159077', 'daffa@gmail.com', '135a4e22cda0e0a68499e6d6e2a861aa', 'Admin', NULL);
 
 --
 -- Indexes for dumped tables
@@ -328,7 +329,7 @@ ALTER TABLE `tabel_galery`
 -- AUTO_INCREMENT for table `tabel_harga`
 --
 ALTER TABLE `tabel_harga`
-  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tabel_kategori_blog`
