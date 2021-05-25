@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2021 at 07:03 AM
+-- Generation Time: May 25, 2021 at 04:54 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -35,15 +35,17 @@ CREATE TABLE `tabel_booking` (
   `tanggal_booking` date NOT NULL,
   `jam_booking` time NOT NULL,
   `keterangan_booking` text,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_by` varchar(100) DEFAULT NULL,
+  `update_at` timestamp(6) NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tabel_booking`
 --
 
-INSERT INTO `tabel_booking` (`id_booking`, `id_user`, `id_paket`, `tanggal_booking`, `jam_booking`, `keterangan_booking`, `time`) VALUES
-(1, 1, 1, '2021-05-16', '12:00:00', NULL, '2021-05-16 12:32:29');
+INSERT INTO `tabel_booking` (`id_booking`, `id_user`, `id_paket`, `tanggal_booking`, `jam_booking`, `keterangan_booking`, `time`, `update_by`, `update_at`) VALUES
+(1, 1, 1, '2021-05-16', '12:00:00', NULL, '2021-05-16 12:32:29', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -58,6 +60,13 @@ CREATE TABLE `tabel_diskon` (
   `deskripsi_diskon` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tabel_diskon`
+--
+
+INSERT INTO `tabel_diskon` (`id_diskon`, `nama_diskon`, `jumlah_diskon`, `deskripsi_diskon`) VALUES
+(1, 'DISKON SEMUA LAYANAN', 25, 'Daftarkan diri anda sekarang juga dan dapatkan special diskon 25% untuk Member InBarberShop');
+
 -- --------------------------------------------------------
 
 --
@@ -69,6 +78,20 @@ CREATE TABLE `tabel_galery` (
   `nama_foto` varchar(200) NOT NULL,
   `foto` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tabel_galery`
+--
+
+INSERT INTO `tabel_galery` (`id_foto`, `nama_foto`, `foto`) VALUES
+(1, 'foto 1', 'gallery-1.jpg'),
+(2, 'foto 2', 'gallery-2.jpg'),
+(3, 'foto 3', 'gallery-3.jpg'),
+(4, 'foto 4', 'gallery-4.jpg'),
+(5, 'foto 5', 'gallery-5.jpg'),
+(6, 'foto 6', 'gallery-6.jpg'),
+(7, 'foto 7', 'gallery-7.jpg'),
+(8, 'foto 8', 'gallery-8.jpg');
 
 -- --------------------------------------------------------
 
@@ -87,7 +110,15 @@ CREATE TABLE `tabel_harga` (
 --
 
 INSERT INTO `tabel_harga` (`id_paket`, `nama_paket`, `harga_paket`) VALUES
-(1, 'Potong Rambut', 30000);
+(1, 'Potong Rambut', 30000),
+(2, 'Gentlemen Cut', 50000),
+(3, 'Gentlemen Grooming', 60000),
+(4, 'Kids Haircut', 30000),
+(5, 'Grooming + Hair Tattoo', 150000),
+(6, 'Wash, Massage & Hairspa', 50000),
+(7, 'Basic Hair Color', 100000),
+(8, 'Hair Repair Treatment', 100000),
+(9, 'Perm Hair Treatment\r\n', 90000);
 
 -- --------------------------------------------------------
 
@@ -101,6 +132,19 @@ CREATE TABLE `tabel_kontak` (
   `link_kontak` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tabel_kontak`
+--
+
+INSERT INTO `tabel_kontak` (`id_kontak`, `nama_kontak`, `link_kontak`) VALUES
+(1, 'Alamat', 'Jalan Veteran, Malang, Jawa Timur, 65145'),
+(2, 'Telepon ', '+62 341 551611'),
+(3, 'E-mail', 'humas@ub.ac.id'),
+(4, 'Website ', 'InBarberShop Malang'),
+(5, 'Twitter', 'https://twitter.com/UB_Official/'),
+(6, 'Facebook', 'https://web.facebook.com/Universitas.Brawijaya.Official'),
+(7, 'Instagram', 'https://www.instagram.com/univ.brawijaya/');
+
 -- --------------------------------------------------------
 
 --
@@ -109,9 +153,19 @@ CREATE TABLE `tabel_kontak` (
 
 CREATE TABLE `tabel_pencapaian` (
   `id_pencapaian` int(11) NOT NULL,
-  `nama_pencapaian` int(100) NOT NULL,
+  `nama_pencapaian` varchar(100) NOT NULL,
   `jumlah_pencapaian` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tabel_pencapaian`
+--
+
+INSERT INTO `tabel_pencapaian` (`id_pencapaian`, `nama_pencapaian`, `jumlah_pencapaian`) VALUES
+(1, 'Kreasi Makeup', 705),
+(2, 'Penghargaan', 105),
+(3, 'Happy Client', 3875),
+(4, 'Member', 2500);
 
 -- --------------------------------------------------------
 
@@ -123,18 +177,23 @@ CREATE TABLE `tabel_user` (
   `id_user` int(11) NOT NULL,
   `nama_user` varchar(100) NOT NULL,
   `telepon_user` varchar(20) NOT NULL,
-  `foto_user` varchar(500) DEFAULT NULL,
   `email_user` varchar(100) NOT NULL,
-  `password_user` varchar(10) NOT NULL,
-  `level_user` varchar(10) NOT NULL
+  `password_user` varchar(100) NOT NULL,
+  `level_user` varchar(10) NOT NULL,
+  `foto_user` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tabel_user`
 --
 
-INSERT INTO `tabel_user` (`id_user`, `nama_user`, `telepon_user`, `foto_user`, `email_user`, `password_user`, `level_user`) VALUES
-(1, 'rizka', '087859159058', NULL, 'rizkarahma67@gmail.com', 'rizka123', 'admin');
+INSERT INTO `tabel_user` (`id_user`, `nama_user`, `telepon_user`, `email_user`, `password_user`, `level_user`, `foto_user`) VALUES
+(1, 'rizka', '087859159058', 'rizkarahma67@gmail.com', 'aef2c231d5e776c0e0656eaf68767848', 'admin', NULL),
+(2, 'Achmad Zulfikar', '087859150002', 'zulfikar@gmail.com', '994d1c236804d0a6a79e9bd55cd5d1f0', 'admin', NULL),
+(3, 'Hassan Jadi', '087823341110', 'hassan@gmail.com', 'f04e1fd4cbfeecfdce8aa2ad6e9cf4ac', 'user', NULL),
+(4, 'Citra Putri', '087823341110', 'citra@gmail.com', 'e260eab6a7c45d139631f72b55d8506b', 'admin', NULL),
+(5, 'M Yudha', '089609940201', 'yudha@gmail.com', '2b9633304de305ed5c03fe19b7a06afe', 'user', NULL),
+(6, 'Daffa A', '087859159077', 'daffa@gmail.com', '135a4e22cda0e0a68499e6d6e2a861aa', 'admin', NULL);
 
 --
 -- Indexes for dumped tables
@@ -198,37 +257,37 @@ ALTER TABLE `tabel_booking`
 -- AUTO_INCREMENT for table `tabel_diskon`
 --
 ALTER TABLE `tabel_diskon`
-  MODIFY `id_diskon` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_diskon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tabel_galery`
 --
 ALTER TABLE `tabel_galery`
-  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tabel_harga`
 --
 ALTER TABLE `tabel_harga`
-  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tabel_kontak`
 --
 ALTER TABLE `tabel_kontak`
-  MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tabel_pencapaian`
 --
 ALTER TABLE `tabel_pencapaian`
-  MODIFY `id_pencapaian` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pencapaian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tabel_user`
 --
 ALTER TABLE `tabel_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
