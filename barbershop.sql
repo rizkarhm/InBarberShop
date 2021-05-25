@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2021 at 04:54 AM
+-- Generation Time: May 25, 2021 at 06:27 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -21,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `barbershop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tabel_blog`
+--
+
+CREATE TABLE `tabel_blog` (
+  `id_blog` int(11) NOT NULL,
+  `id_kategori` int(11) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `isi` text NOT NULL,
+  `insert_at` datetime NOT NULL,
+  `insert_by` int(11) NOT NULL,
+  `update_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tabel_blog`
+--
+
+INSERT INTO `tabel_blog` (`id_blog`, `id_kategori`, `judul`, `isi`, `insert_at`, `insert_by`, `update_at`, `update_by`) VALUES
+(1, 1, 'Cara blogging melalui android', 'Lorem ipsum', '2021-05-25 11:25:42', 1, '2021-05-25 04:26:19', 6);
 
 -- --------------------------------------------------------
 
@@ -123,6 +147,24 @@ INSERT INTO `tabel_harga` (`id_paket`, `nama_paket`, `harga_paket`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tabel_kategori_blog`
+--
+
+CREATE TABLE `tabel_kategori_blog` (
+  `id_kategori` int(11) NOT NULL,
+  `kategori` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tabel_kategori_blog`
+--
+
+INSERT INTO `tabel_kategori_blog` (`id_kategori`, `kategori`) VALUES
+(1, 'android\r\n');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tabel_kontak`
 --
 
@@ -200,6 +242,15 @@ INSERT INTO `tabel_user` (`id_user`, `nama_user`, `telepon_user`, `email_user`, 
 --
 
 --
+-- Indexes for table `tabel_blog`
+--
+ALTER TABLE `tabel_blog`
+  ADD PRIMARY KEY (`id_blog`),
+  ADD KEY `id_kategori` (`id_kategori`,`insert_by`,`update_by`),
+  ADD KEY `insert_by` (`insert_by`),
+  ADD KEY `update_by` (`update_by`);
+
+--
 -- Indexes for table `tabel_booking`
 --
 ALTER TABLE `tabel_booking`
@@ -226,6 +277,12 @@ ALTER TABLE `tabel_harga`
   ADD PRIMARY KEY (`id_paket`);
 
 --
+-- Indexes for table `tabel_kategori_blog`
+--
+ALTER TABLE `tabel_kategori_blog`
+  ADD PRIMARY KEY (`id_kategori`);
+
+--
 -- Indexes for table `tabel_kontak`
 --
 ALTER TABLE `tabel_kontak`
@@ -246,6 +303,12 @@ ALTER TABLE `tabel_user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tabel_blog`
+--
+ALTER TABLE `tabel_blog`
+  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tabel_booking`
@@ -272,6 +335,12 @@ ALTER TABLE `tabel_harga`
   MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `tabel_kategori_blog`
+--
+ALTER TABLE `tabel_kategori_blog`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tabel_kontak`
 --
 ALTER TABLE `tabel_kontak`
@@ -294,10 +363,17 @@ ALTER TABLE `tabel_user`
 --
 
 --
+-- Constraints for table `tabel_blog`
+--
+ALTER TABLE `tabel_blog`
+  ADD CONSTRAINT `tabel_blog_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `tabel_kategori_blog` (`id_kategori`),
+  ADD CONSTRAINT `tabel_blog_ibfk_2` FOREIGN KEY (`insert_by`) REFERENCES `tabel_user` (`id_user`),
+  ADD CONSTRAINT `tabel_blog_ibfk_3` FOREIGN KEY (`update_by`) REFERENCES `tabel_user` (`id_user`);
+
+--
 -- Constraints for table `tabel_booking`
 --
 ALTER TABLE `tabel_booking`
-  ADD CONSTRAINT `tabel_booking_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tabel_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tabel_booking_ibfk_2` FOREIGN KEY (`id_paket`) REFERENCES `tabel_harga` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
