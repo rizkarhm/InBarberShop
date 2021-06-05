@@ -4,7 +4,7 @@
       <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
         <div class="col-md-6 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
           <h1 class="mb-3 mt-5 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Kontak Kami</h1>
-          <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Beranda</a></span> <span>Kontak Kami</span></p>
+          <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.php?include=index">Beranda</a></span> <span>Kontak Kami</span></p>
         </div>
       </div>
     </div>
