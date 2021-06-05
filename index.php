@@ -1,3 +1,13 @@
+<?php
+session_start();
+include('koneksi/koneksi.php');
+if (isset($_GET['include'])) {
+    $include = $_GET['include'];
+    if ($include == "bookingKonfirmasiTambah") { //booking
+        include("include/bookingKonfirmasiTambah.php");
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +33,7 @@
             include("include/masuk.php");
         } else if ($include == "buatJanji") {
             include("include/buatJanji.php");
-        }else {
+        } else {
             include("include/index.php");
         }
     } else {

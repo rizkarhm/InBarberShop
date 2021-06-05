@@ -4,7 +4,7 @@
     <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
       <div class="col-md-6 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
         <h1 class="mb-3 mt-5 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tentang Kami</h1>
-        <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Beranda</a></span> <span>Tentang Kami</span></p>
+        <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.php?include=index">Beranda</a></span> <span>Tentang Kami</span></p>
       </div>
     </div>
   </div>
@@ -48,6 +48,7 @@
     </div>
   </div>
 </section>
+
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
@@ -59,37 +60,37 @@
         </p>
       </div>
     </div>
-
-    <div class="center">
-      <div class="staff">
-        <div class="img mb-4" style="background-image: url(images/ariska.jpg);"></div>
-        <div class="info text-center">
-          <h3><a href="teacher-single.html">Rizka Nur Rahma</a></h3>
-          <span class="position">203140914111001</span>
-          <div class="text">
-            <p>Direktur Utama</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="center">
-      <div class="staff">
-        <div class="img mb-4" style="background-image: url(images/azoel.jpg);"></div>
-        <div class="info text-center">
-          <h3><a href="teacher-single.html">Achmad Zulfikar</a></h3>
-          <span class="position">203140914111014</span>
-          <div class="text">
-            <p>-</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <br>
-
     <div class="row">
-      <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
+
+      <?php
+      $sql_b = "SELECT * FROM `tabel_user` order by  `id_user`";
+      $query_b = mysqli_query($koneksi, $sql_b);
+      while ($data_b = mysqli_fetch_array($query_b)) {
+        $nama = $data_b['nama_user'];
+        $nim = $data_b['nim_user'];
+        $foto = $data_b['foto_user'];
+        $jobdesk = $data_b['jobdesk'];
+
+      ?>
+        <div class="col-lg-2 d-flex mb-sm-4 ftco-animate">
+          <div class="staff">
+            <div class="img mb-4" style="background-image: url(admin/foto/<?php if ($foto == NULL || $foto == '') {
+                                                                        echo "ariska.jpg";
+                                                                      } else {
+                                                                        echo $foto;
+                                                                      } ?>);>"></div>
+            <div class="info text-center">
+              <h3><a href="teacher-single.html"><?= $nama ?><br></a></h3>
+              <span class="position"><?= $nim ?></span>
+              <div class="text">
+                <p><?= $jobdesk ?></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <?php } ?>
+      <!-- <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
         <div class="staff">
           <div class="img mb-4" style="background-image: url(images/adaffa.JPG);"></div>
           <div class="info text-center">
@@ -136,7 +137,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

@@ -252,7 +252,7 @@
         <h2 class="mb-4">DISKON SEMUA LAYANAN</h2>
         <p class="mb-4">Daftarkan diri anda sekarang juga dan dapatkan special diskon 25% untuk Member InBarberShop
         </p>
-        <p><a href="#" class="btn btn-primary px-4 py-3">Buat Janji</a></p>
+        <p><a href="index.php?include=buatJanji" class="btn btn-primary px-4 py-3">Buat Janji</a></p>
       </div>
     </div>
   </div>

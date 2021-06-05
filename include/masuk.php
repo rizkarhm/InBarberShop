@@ -24,18 +24,23 @@
                                 <div class="w-100">
                                     <h3 class="mb-4">Masuk</h3>
                                 </div>
+                                <div>
+                                    <p style="font-size:x-large;">
+                                        <a href="index.php?include=index" class="social-icon d-flex align-items-center justify-content-center"><span class="fa"></span>&larr;</a>
+                                    </p>
+                                </div>
                             </div>
-                            <form action="#" class="signin-form">
+                            <form action="index.php" class="signin-form" method="POST">
                                 <div class="form-group mb-3">
                                     <label class="label" for="name">Email</label>
-                                    <input type="text" class="form-control" placeholder="Email" required>
+                                    <input type="text" name="email" class="form-control" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="label" for="password">Kata Sandi</label>
-                                    <input type="password" class="form-control" placeholder="Kata Sandi" required>
+                                    <input type="text" name="password" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Masuk</button>
+                                    <button type="submit" name="login" class="form-control btn btn-primary rounded submit px-3">Masuk</button>
                                 </div>
                             </form>
                         </div>

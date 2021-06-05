@@ -1,0 +1,113 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="index.php" class="brand-link">
+    <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">AdminKatalog</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item">
+          <a href="index.php?include=profil" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              Profil
+            </p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-database"></i>
+            <p>
+              Data Master
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="index.php?include=harga" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Harga</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?include=galeri" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Galeri</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?include=pencapaian" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Pencapaian</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?include=kategoriBlog" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Kategori Blog</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?include=kontak" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Kontak</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="index.php?include=booking" class="nav-link">
+            <i class="nav-icon fas fa-file-alt"></i>
+            <p>
+              Book Appointment
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="index.php?include=blog" class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
+            <p>
+              Blog
+            </p>
+          </a>
+        </li>
+        <?php if (isset($_SESSION['level'])) {
+          if ($_SESSION['level'] == "Superadmin") { ?>
+            <li class="nav-item">
+              <a href="index.php?include=user" class="nav-link">
+                <i class="nav-icon fas fa-user-cog"></i>
+                <p>
+                  Pengaturan User
+                </p>
+              </a>
+            </li>
+        <?php }
+        } ?>
+        <li class="nav-item">
+          <a href="index.php?include=ubahPassword" class="nav-link">
+            <i class="nav-icon fas fa-user-lock"></i>
+            <p>
+              Ubah Password
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a onclick="if(confirm('Apakah anda yakin ingin Sign Out?')){ location.href='index.php?include=signout' }" class="nav-link">
+            <i class="nav-icon fas fa-sign-out-alt"></i>
+            <p>
+              Sign Out
+            </p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

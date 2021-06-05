@@ -6,7 +6,16 @@
                 <div class="col-md-6 d-flex align-self-stretch">
                 </div>
                 <div class="col-md-6 appointment ftco-animate">
-                    <h3 class="mb-3">Buat Janji</h3>
+                    <div class="d-flex">
+                        <div class="w-100">
+                            <h3 class="mb-3">Buat Janji</h3>
+                        </div>
+                        <div>
+                            <p style="font-size:x-large; color:white">
+                                <a href="index.php?include=index" >&larr;</a>
+                            </p>
+                        </div>
+                    </div>
                     <form action="#" class="appointment-form">
                         <div class="d-md-flex">
                             <div class="form-group">
@@ -47,22 +56,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <select class="mdb-select md-form colorful-select dropdown-danger">
-                            <option value="" disabled selected>Pilih Paket</option>
-                            <option value="1">30k Kids Haircut</option>
-                            <option value="2">50k Gentlemen Cut</option>
-                            <option value="3">50k Wash, Massage & Hairspa</option>
-                            <option value="4">60k Gentlemen Grooming</option>
-                            <option value="5">90k Perm Hair Treatment</option>
-                            <option value="6">100k Basic Hair Color</option>
-                            <option value="7">100k Hair Repair Treatment</option>
-                            <option value="8">150k Grooming + Hair Tattoo</option>
-                        </select> -->
                         <div class="form-group">
                             <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Pesan"></textarea>
                         </div>
                         <div class="form-group">
-                            <a href="index.php?include=index" class="btn btn-outline-dark px-4 py-3">kembali</a>
+                            <!-- <button class="btn btn-primary-light px-4 py-3"><a href="index.php?include=index">Kembali</a></button> -->
                             <input type="submit" value="Buat Janji" class="btn btn-primary py-3 px-4">
                         </div>
                     </form>
