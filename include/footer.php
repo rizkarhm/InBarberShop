@@ -4,13 +4,13 @@
         <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
                 <h2 class="ftco-heading-2">Tentang Kami</h2>
-                <p>PT.Indonesia Barbershop Malang adalah perusahaan yang bergerak dibidang jasa (Barbershop) bernama
+                <p>PT. Indonesia Barbershop Malang adalah perusahaan yang bergerak dibidang jasa (Barbershop) bernama
                     InBarberShop. InBarberShop didirikan pada 9 November 2020.</p>
                 <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                    <li class="ftco-animate"><a href="https://twitter.com/ub_official"><span class="icon-twitter"></span></a>
+                    <li class="ftco-animate"><a target="_blank" href="https://twitter.com/ub_official"><span class="icon-twitter"></span></a>
                     </li>
-                    <li class="ftco-animate"><a href="https://web.facebook.com/Universitas.Brawijaya.Official/"><span class="icon-facebook"></span></a></li>
-                    <li class="ftco-animate"><a href="https://www.instagram.com/univ.brawijaya/"><span class="icon-instagram"></span></a></li>
+                    <li class="ftco-animate"><a target="_blank" href="https://web.facebook.com/Universitas.Brawijaya.Official/"><span class="icon-facebook"></span></a></li>
+                    <li class="ftco-animate"><a target="_blank" href="https://www.instagram.com/univ.brawijaya/"><span class="icon-instagram"></span></a></li>
                 </ul>
             </div>
         </div>
@@ -18,11 +18,22 @@
             <div class="ftco-footer-widget mb-4">
                 <h2 class="ftco-heading-2">Layanan Kami</h2>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="py-2 d-block">Haircut</a></li>
-                    <li><a href="#" class="py-2 d-block">Hairstyle</a></li>
-                    <li><a href="#" class="py-2 d-block">Trimming</a></li>
-                    <li><a href="#" class="py-2 d-block">Shaving</a></li>
-                    <li><a href="#" class="py-2 d-block">Skin Care</a></li>
+                    <li>
+                        <p>Haircut</p>
+                        </p>
+                    <li>
+                    <li>
+                        <p>Hairstyle</p>
+                    </li>
+                    <li>
+                        <p>Trimming</p>
+                    </li>
+                    <li>
+                        <p>Shaving</p>
+                    <li>
+                    <li>
+                        <p>Skin Car</p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -33,8 +44,8 @@
                     <ul>
                         <li><span class="icon icon-map-marker"></span><span class="text">Jalan Veteran, Malang, Jawa Timur,
                                 65145</span></li>
-                        <li><a href="https://ub.ac.id/id/copyright/contact/"><span class="icon icon-phone"></span><span class="text">+62 341 551611</span></a></li>
-                        <li><a href="https://ub.ac.id/id/copyright/contact/"><span class="icon icon-envelope"></span><span class="text"><span class="__cf_email__" data-cfemail="224b4c444d625b4d5750464d4f434b4c0c414d4f">humas@ub.ac.id</span></span></a></li>
+                        <li><a target="_blank" href="https://ub.ac.id/id/copyright/contact/"><span class="icon icon-phone"></span><span class="text">+62 341 551611</span></a></li>
+                        <li><a target="_blank" href="https://ub.ac.id/id/copyright/contact/"><span class="icon icon-envelope"></span><span class="text"><span class="__cf_email__" data-cfemail="224b4c444d625b4d5750464d4f434b4c0c414d4f">humas@ub.ac.id</span></span></a></li>
                     </ul>
                 </div>
             </div>

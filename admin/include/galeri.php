@@ -90,7 +90,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
                     <?php
                     //$sql_k = "SELECT `id_harga`,`harga` FROM `harga` ORDER BY `harga`";
 
-                    $batas = 2;
+                    $batas = 5;
                     if (!isset($_GET['halaman'])) {
                         $posisi = 0;
                         $halaman = 1;

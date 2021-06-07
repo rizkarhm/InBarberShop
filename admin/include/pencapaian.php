@@ -90,7 +90,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
                     <?php
                     //$sql_k = "SELECT `id_pencapaian`,`pencapaian` FROM `pencapaian` ORDER BY `pencapaian`";
 
-                    $batas = 2;
+                    $batas = 5;
                     if (!isset($_GET['halaman'])) {
                         $posisi = 0;
                         $halaman = 1;

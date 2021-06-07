@@ -55,9 +55,15 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="email" class="col-sm-3 col-form-label">Telepon</label>
+                    <label for="email" class="col-sm-3 col-form-label">NIM</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" name="telepon" id="email" value="">
+                        <input type="text" class="form-control" name="nim" id="email" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-3 col-form-label">Jobdesk</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" name="job" id="email" value="">
                     </div>
                 </div>
                 <div class="form-group row">

@@ -45,10 +45,11 @@
       </div>
       <div class="social pl-md-5 p-4">
         <ul class="social-icon">
-          <li class="ftco-animate"><a href="https://twitter.com/UB_Official/"><span class="icon-twitter"></span></a>
+
+          <li class="ftco-animate"><a target="_blank" href="https://twitter.com/UB_Official/"><span class="icon-twitter"></span></a>
           </li>
-          <li class="ftco-animate"><a href="https://web.facebook.com/Universitas.Brawijaya.Official"><span class="icon-facebook"></span></a></li>
-          <li class="ftco-animate"><a href="https://www.instagram.com/univ.brawijaya/"><span class="icon-instagram"></span></a></li>
+          <li class="ftco-animate"><a target="_blank" href="https://web.facebook.com/Universitas.Brawijaya.Official"><span class="icon-facebook"></span></a></li>
+          <li class="ftco-animate"><a target="_blank" href="https://www.instagram.com/univ.brawijaya/"><span class="icon-instagram"></span></a></li>
         </ul>
       </div>
     </div>
@@ -156,88 +157,50 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <div class="pricing-entry ftco-animate fadeInUp ftco-animated">
-          <div class="d-flex text align-items-center">
-            <h3><span>Gentlemen Cut</span></h3>
-            <span class="price">50k</span>
+        <?php
+        function rupiah($angka)
+        {
+
+          $hasil_rupiah = "Rp " . number_format($angka, 0, ',', '.');
+          return $hasil_rupiah;
+        }
+        $sql_b = "SELECT * FROM `tabel_harga` limit 0,4 ";
+        $query_b = mysqli_query($koneksi, $sql_b);
+        while ($data_b = mysqli_fetch_array($query_b)) {
+          $nama = $data_b['nama_paket'];
+          $harga = $data_b['harga_paket'];
+          $deskripsi = $data_b['deskripsi_paket'];
+        ?>
+          <div class="pricing-entry ftco-animate fadeInUp ftco-animated">
+            <div class="d-flex text align-items-center">
+              <h3><span><?php echo $nama ?></span></h3>
+              <span class="price"><?php echo rupiah($harga) ?></span>
+            </div>
+            <div class="d-block">
+              <p><?php echo $deskripsi ?></p>
+            </div>
           </div>
-          <div class="d-block">
-            <p>Perawatan kami yang berkualitas tinggi namun cepat. Potong rambut kamu lalu
-              diakhiri dengan pemakaian tonik atau pomade.</p>
-          </div>
-        </div>
-        <div class="pricing-entry ftco-animate fadeInUp ftco-animated">
-          <div class="d-flex text align-items-center">
-            <h3><span>Gentlemen Grooming</span></h3>
-            <span class="price">60k</span>
-          </div>
-          <div class="d-block">
-            <p>A complete men’s grooming service. Dimulai dengan membersihkan wajah dengan
-              handuk dingin**kemudian potong rambut lalu keramas, selanjutnya membersihkan wajah
-              dengan handuk hangat, mendapatkan pijat kepala dan punggung lalu diakhiri
-              dengan pengaplikasian tonik atau pomade.</p>
-          </div>
-        </div>
-        <div class="pricing-entry ftco-animate fadeInUp ftco-animated">
-          <div class="d-flex text align-items-center">
-            <h3><span>Kids Haircut</span></h3>
-            <span class="price">30k</span>
-          </div>
-          <div class="d-block">
-            <p>Pengalaman potong rambut yang ramah dan nyaman untuk si kecil.</p>
-          </div>
-        </div>
-        <div class="pricing-entry ftco-animate fadeInUp ftco-animated">
-          <div class="d-flex text align-items-center">
-            <h3><span>Grooming + Hair Tattoo</span></h3>
-            <span class="price">150k</span>
-          </div>
-          <div class="d-block">
-            <p>Untuk kamu yang ingin mencari gaya rambut khas. Biarkan barberman kami yang
-              terampil untuk membentuk dan merancang gaya rambut-mu seperti hasil mahakaryanya.</p>
-          </div>
-        </div>
+        <?php } ?>
       </div>
       <div class="col-md-6">
-        <div class="pricing-entry ftco-animate fadeInUp ftco-animated">
-          <div class="d-flex text align-items-center">
-            <h3><span>Wash, Massage & Hairspa</span></h3>
-            <span class="price">50k</span>
+        <?php
+        $sql_b = "SELECT * FROM `tabel_harga` limit 4,8 ";
+        $query_b = mysqli_query($koneksi, $sql_b);
+        while ($data_b = mysqli_fetch_array($query_b)) {
+          $nama = $data_b['nama_paket'];
+          $harga = $data_b['harga_paket'];
+          $deskripsi = $data_b['deskripsi_paket'];
+        ?>
+          <div class="pricing-entry ftco-animate fadeInUp ftco-animated">
+            <div class="d-flex text align-items-center">
+              <h3><span><?php echo $nama ?></span></h3>
+              <span class="price"><?php echo rupiah($harga) ?></span>
+            </div>
+            <div class="d-block">
+              <p><?php echo $deskripsi ?></p>
+            </div>
           </div>
-          <div class="d-block">
-            <p>Diawali dengan pemijatan kepala dan punggung , lalu dapatkan rambut kilaumu yang
-              lebih sehat dengan hairspa dan pengaplikasian tonik atau pomade</p>
-          </div>
-        </div>
-        <div class="pricing-entry ftco-animate fadeInUp ftco-animated">
-          <div class="d-flex text align-items-center">
-            <h3><span>Basic Hair Color</span></h3>
-            <span class="price">100k</span>
-          </div>
-          <div class="d-block">
-            <p>Warnai rambutmu (tanpa dibleaching) dengan sempurna sesuai dengan warna idaman-mu
-              dengan barberman kami yang sudah berpengalaman.</p>
-          </div>
-        </div>
-        <div class="pricing-entry ftco-animate fadeInUp ftco-animated">
-          <div class="d-flex text align-items-center">
-            <h3><span>Hair Repair Treatment</span></h3>
-            <span class="price">100k</span>
-          </div>
-          <div class="d-block">
-            <p>Treatment untuk rambut yang sudah rusak akibat bahan kimia yang berfungsi untuk
-              mengembalikan kesehatan rambutmu</p>
-          </div>
-        </div>
-        <div class="pricing-entry ftco-animate fadeInUp ftco-animated">
-          <div class="d-flex text align-items-center">
-            <h3><span>Perm Hair Treatment</span></h3>
-            <span class="price">90k</span>
-          </div>
-          <div class="d-block">
-            <p>Pengeritingan rambut dengan hasil yang natural dan trendy</p>
-          </div>
-        </div>
+        <?php } ?>
       </div>
     </div>
   </div>
@@ -250,14 +213,14 @@
       <div class="col-md-7 text-center discount ftco-animate" data-scrollax=" properties: { translateY: '-30%'}">
         <h3>Hemat hingga 25%</h3>
         <h2 class="mb-4">DISKON SEMUA LAYANAN</h2>
-        <p class="mb-4">Daftarkan diri anda sekarang juga dan dapatkan special diskon 25% untuk Member InBarberShop
-        </p>
+        <!-- <p class="mb-4">Daftarkan diri anda sekarang juga dan dapatkan special diskon 25% untuk Member InBarberShop
+        </p> -->
         <p><a href="index.php?include=buatJanji" class="btn btn-primary px-4 py-3">Buat Janji</a></p>
       </div>
     </div>
   </div>
 </section>
-<section class="ftco-section">
+<!-- <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
       <div class="col-md-7 heading-section ftco-animate text-center">
@@ -321,7 +284,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <section class="ftco-gallery ftco-bg-dark">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
@@ -336,62 +299,28 @@
   </div>
   <div class="container-wrap">
     <div class="row no-gutters">
-      <div class="col-md-3 ftco-animate">
-        <a href="images/gallery-1.jpg" class="gallery img image-popup d-flex align-items-center" style="background-image: url(images/gallery-1.jpg);">
-          <div class="icon mb-4 d-flex align-items-center justify-content-center">
-            <span class="icon-search"></span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 ftco-animate">
-        <a href="images/gallery-2.jpg" class="gallery img image-popup d-flex align-items-center" style="background-image: url(images/gallery-2.jpg);">
-          <div class="icon mb-4 d-flex align-items-center justify-content-center">
-            <span class="icon-search"></span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 ftco-animate">
-        <a href="images/gallery-3.jpg" class="gallery img image-popup d-flex align-items-center" style="background-image: url(images/gallery-3.jpg);">
-          <div class="icon mb-4 d-flex align-items-center justify-content-center">
-            <span class="icon-search"></span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 ftco-animate">
-        <a href="images/gallery-4.jpg" class="gallery img image-popup d-flex align-items-center" style="background-image: url(images/gallery-4.jpg);">
-          <div class="icon mb-4 d-flex align-items-center justify-content-center">
-            <span class="icon-search"></span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 ftco-animate">
-        <a href="images/gallery-5.jpg" class="gallery img image-popup d-flex align-items-center" style="background-image: url(images/gallery-5.jpg);">
-          <div class="icon mb-4 d-flex align-items-center justify-content-center">
-            <span class="icon-search"></span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 ftco-animate">
-        <a href="images/gallery-6.jpg" class="gallery img image-popup d-flex align-items-center" style="background-image: url(images/gallery-6.jpg);">
-          <div class="icon mb-4 d-flex align-items-center justify-content-center">
-            <span class="icon-search"></span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 ftco-animate">
-        <a href="images/gallery-7.jpg" class="gallery img image-popup d-flex align-items-center" style="background-image: url(images/gallery-7.jpg);">
-          <div class="icon mb-4 d-flex align-items-center justify-content-center">
-            <span class="icon-search"></span>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3 ftco-animate">
-        <a href="images/gallery-8.jpg" class="gallery img image-popup d-flex align-items-center" style="background-image: url(images/gallery-8.jpg);">
-          <div class="icon mb-4 d-flex align-items-center justify-content-center">
-            <span class="icon-search"></span>
-          </div>
-        </a>
-      </div>
+      <?php
+      $sql_b = "SELECT * FROM `tabel_galery` limit 0,8 ";
+      $query_b = mysqli_query($koneksi, $sql_b);
+      while ($data_b = mysqli_fetch_array($query_b)) {
+        $foto = $data_b['foto'];
+      ?>
+        <div class="col-md-3 ftco-animate">
+          <a href="images/<?php if ($foto == NULL || $foto == '') {
+                            echo "galery-1.jpg";
+                          } else {
+                            echo $foto;
+                          } ?>" class="gallery img image-popup d-flex align-items-center" style="background-image: url(images/<?php if ($foto == NULL || $foto == '') {
+                                                                                                                                echo "galery-1.jpg";
+                                                                                                                              } else {
+                                                                                                                                echo $foto;
+                                                                                                                              } ?>);">
+            <div class="icon mb-4 d-flex align-items-center justify-content-center">
+              <span class="icon-search"></span>
+            </div>
+          </a>
+        </div>
+      <?php } ?>
     </div>
   </div>
   </div>
@@ -402,42 +331,25 @@
     <div class="row justify-content-center">
       <div class="col-md-10">
         <div class="row">
-          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 text-center">
-              <div class="text">
-                <div class="icon"><span class="flaticon-scissor-and-comb"></span></div>
-                <strong class="number" data-number="705">0</strong>
-                <span>Kreasi Makeup</span>
+
+          <?php
+          $sql_b = "SELECT * FROM `tabel_pencapaian` limit 0,4";
+          $query_b = mysqli_query($koneksi, $sql_b);
+          while ($data_b = mysqli_fetch_array($query_b)) {
+            $nama = $data_b['nama_pencapaian'];
+            $jumlah = $data_b['jumlah_pencapaian'];
+          ?>
+
+            <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+              <div class="block-18 text-center">
+                <div class="text">
+                  <div class="icon"><span class="flaticon-scissor-and-comb"></span></div>
+                  <strong class="number" data-number="<?php echo $jumlah ?>">0</strong>
+                  <span><?php echo $nama ?></span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 text-center">
-              <div class="text">
-                <div class="icon"><span class="flaticon-scissor-and-comb"></span></div>
-                <strong class="number" data-number="105">0</strong>
-                <span>Jumlah Penghargaan</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 text-center">
-              <div class="text">
-                <div class="icon"><span class="flaticon-scissor-and-comb"></span></div>
-                <strong class="number" data-number="3875">0</strong>
-                <span>Clients Senang</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 text-center">
-              <div class="text">
-                <div class="icon"><span class="flaticon-scissor-and-comb"></span></div>
-                <strong class="number" data-number="2500">0</strong>
-                <span>Jumlah Member</span>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
     </div>

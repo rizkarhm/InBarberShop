@@ -21,11 +21,11 @@ if (isset($_SESSION['katakunci_kategori'])) {
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h3><i class="fas fa-address-book"></i> kategori</h3>
+                <h3><i class="fas fa-address-book"></i> Kategori</h3>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item active"> Hkategori</li>
+                    <li class="breadcrumb-item active"> Kategori</li>
                 </ol>
             </div>
         </div>
@@ -87,7 +87,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
                     <?php
                     //$sql_k = "SELECT `id_harga`,`harga` FROM `harga` ORDER BY `harga`";
 
-                    $batas = 2;
+                    $batas = 5;
                     if (!isset($_GET['halaman'])) {
                         $posisi = 0;
                         $halaman = 1;

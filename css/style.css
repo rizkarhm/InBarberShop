@@ -7449,8 +7449,8 @@ h1, h2, h3, h4, h5,
       font-size: 16px;
       letter-spacing: .1em; }
     .ftco-navbar-light.scrolled .nav-link {
-      padding-top: 0.9rem !important;
-      padding-bottom: 0.9rem !important;
+      /* padding-top: 0.9rem !important;
+      padding-bottom: 0.9rem !important; */
       color: #000 !important; }
       .ftco-navbar-light.scrolled .nav-link.active {
         color: #ce9c6b !important; }
@@ -7902,7 +7902,7 @@ h1, h2, h3, h4, h5,
       color: #ce9c6b;
       text-align: right;
       background: #1b1b1b;
-      font-size: 16px; }
+      font-size: 15px; }
 
 .ftco-appointment {
   width: 100%;

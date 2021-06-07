@@ -26,10 +26,13 @@
             </div>
         </div>
         <div class="col-sm-10">
+            <br>
             <?php
             if (isset($_GET['notif'])) {
                 if ($_GET['notif'] == "tambahkosong") {
                     echo '<div class="alert alert-danger" role="alert">Maaf data ' . $_GET['jenis'] . ' wajib di isi</div>';
+                } else if ($_GET['notif'] == "jampenuh") {
+                    echo '<div class="alert alert-danger" role="alert">Maaf janji pada tanggal ' . $_GET['tanggal'] . ' pukul ' . $_GET['jam'] . ' sudah penuh</div>';
                 }
             }
             ?>
@@ -41,6 +44,12 @@
                     <label for="judul" class="col-sm-3 col-form-label">Nama Lengkap</label>
                     <div class="col-sm-7">
                         <input type="text" class="form-control" name="nama" id="judul" value="" placeholder="Nama Lengkap">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="judul" class="col-sm-3 col-form-label">Nomor Telepon</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" name="telepon" id="judul" value="" placeholder="Nomor Telepon">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -104,7 +113,7 @@ function get_times($default = '08:00', $interval = '+30 minutes')
     $output = '';
 
     $current = strtotime('08:00');
-    $end = strtotime('21:00');
+    $end = strtotime('20:30');
 
     while ($current <= $end) {
         $time = date('H:i', $current);

@@ -7,6 +7,7 @@ if (isset($_GET['data'])) {
     while ($data_d = mysqli_fetch_array($query_d)) {
         $nama = $data_d['nama_paket'];
         $harga = $data_d['harga_paket'];
+        $deskripsi = $data_d['deskripsi_paket'];
     }
 }
 ?>
@@ -61,6 +62,12 @@ if (isset($_GET['data'])) {
                     <label for="harga" class="col-sm-3 col-form-label">Harga Paket</label>
                     <div class="col-sm-7">
                         <input type="text" class="form-control" id="harga" value="<?php echo $harga; ?>" name="harga">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="harga" class="col-sm-3 col-form-label">Deskripsi Paket</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="harga" value="<?php echo $deskripsi; ?>" name="deskripsi">
                     </div>
                 </div>
             </div>

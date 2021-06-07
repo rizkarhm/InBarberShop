@@ -6,8 +6,26 @@ if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
         $sql_dh = "DELETE from `tabel_booking` where `id_booking` = '$id_booking'";
         mysqli_query($koneksi, $sql_dh);
         //echo $sql_dh;
+    } elseif ($_GET['aksi'] == 'process') {
+        $id_booking = $_GET['data'];
+        $sql_b = "UPDATE `tabel_booking` set `status`='in process' where `id_booking` = '$id_booking'";
+        mysqli_query($koneksi, $sql_b);
+        //echo $sql_dh;
+    } elseif ($_GET['aksi'] == 'complete') {
+        $id_booking = $_GET['data'];
+        $sql_b = "UPDATE `tabel_booking` set `status`='complete' where `id_booking` = '$id_booking'";
+        mysqli_query($koneksi, $sql_b);
+        //echo $sql_dh;
+    } elseif ($_GET['aksi'] == 'process') {
+        $sql_s = "SELECT `status` from`tabel_booking` where `id_booking` = '$id_booking'";
+        $query_s = mysqli_query($koneksi, $sql_s);
+        while ($data_s = mysqli_fetch_array($query_s)) {
+            $status = $data_s['status'];
+        }
     }
 }
+
+$sql = "SELECT * from `tabel_booking`";
 
 if (isset($_POST["katakunci"])) {
     $katakunci_kategori = $_POST["katakunci"];
@@ -16,6 +34,7 @@ if (isset($_POST["katakunci"])) {
 if (isset($_SESSION['katakunci_kategori'])) {
     $katakunci_kategori = $_SESSION['katakunci_kategori'];
 }
+
 ?>
 
 <section class="content-header">
@@ -77,8 +96,8 @@ if (isset($_SESSION['katakunci_kategori'])) {
                         <th width="15%">Nama Pemesan</th>
                         <th width="15%">Pilihan Paket</th>
                         <th width="15%">Tanggal Pesan</th>
-                        <th width="20%">Jam Pesan</th>
-                        <th width="20%">Keterangan</th>
+                        <th width="10%">Jam Pesan</th>
+                        <th width="10%">Status</th>
                         <th width="15%">
                             <center>Aksi</center>
                         </th>
@@ -88,7 +107,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
                     <?php
                     //$sql_k = "SELECT `id_user`,`user` FROM `user` ORDER BY `user`";
 
-                    $batas = 2;
+                    $batas = 5;
                     if (!isset($_GET['halaman'])) {
                         $posisi = 0;
                         $halaman = 1;
@@ -123,6 +142,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
                         $jam = $data_b['jam_booking'];
                         $keterangan = $data_b['keterangan_booking'];
                         $timestamp = $data_b['time'];
+                        $status = $data_b['status'];
                     ?>
                         <tr>
                             <td><?php echo $no ?></td>
@@ -137,17 +157,30 @@ if (isset($_SESSION['katakunci_kategori'])) {
                                 ?></td>
                             <td><?php echo $tanggal ?></td>
                             <td><?php echo $jam ?></td>
-                            <td><?php if ($keterangan == NULL) {
-                                    echo '-';
-                                } else {
-                                    echo $keterangan;
-                                }
-                                ?></td>
+                            <!-- <td><?php if ($keterangan == NULL) {
+                                            echo '-';
+                                        } else {
+                                            echo $keterangan;
+                                        }
+                                        ?></td> -->
+                            <td><?php echo $status ?></td>
                             <td align="center">
                                 <a href="index.php?include=bookingEdit&data=<?php echo $id_book; ?>" class="btn btn-xs btn-info"><i class="fas fa-edit"></i></a>
                                 <a href="index.php?include=bookingDetail&data=<?php echo $id_book; ?>" class="btn btn-xs btn-info"><i class="fas fa-eye"></i></a>
-                                <a onclick="if(confirm('Apakah anda yakin ingin menghapus booking atas nama <?php echo $name; ?> pada pukul <?php echo $jam; ?>??')){ location.href='index.php?include=booking&aksi=hapus&data=<?php echo $id_book; ?>' }" class="btn btn-xs btn-warning"><i class="fas fa-trash"></i></a>
+                                <a onclick="if(confirm('Apakah anda yakin ingin menghapus booking atas nama <?php echo $name; ?> pada pukul <?php echo $jam; ?>??')){ location.href='index.php?include=booking&aksi=hapus&data=<?php echo $id_book; ?>' }" class="btn btn-xs btn-danger"><i class="fas fa-trash"></i></a>
+                                <span> | </span>
+                                <?php
+                                if ($status == "pending") { ?>
+                                    <a alt="process" href="index.php?include=booking&aksi=process&data=<?php echo $id_book; ?>" class="btn btn-xs btn-warning"><i class="fas fa-sync"></i></a>
+                                <?php } else if ($status == "in process") { ?>
+                                    <a href="index.php?include=booking&aksi=complete&data=<?php echo $id_book; ?>" class="btn btn-xs btn-success"><i class="fas fa-check"></i></a>
+                                <?php } else if ($status == "complete") { ?>
+                                    <a href="index.php?include=booking&aksi=complete&data=<?php echo $id_book; ?>" class="btn btn-xs btn"><i class="fas fa-check"></i></a>
+                                <?php } ?>
+
+
                             </td>
+
                         </tr>
                     <?php $no++;
                     } ?>

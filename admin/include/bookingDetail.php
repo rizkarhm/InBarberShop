@@ -12,6 +12,7 @@ if (isset($_GET['data'])) {
         $keterangan = $data_b['keterangan_booking'];
         $timestamp = $data_b['time'];
         $nama = $data_b['nama'];
+        $telepon = $data_b['telepon'];
     }
     //echo $sql_b;
 }
@@ -57,6 +58,10 @@ function rupiah($angka)
                     <tr>
                         <td width="20%"><strong>Nama Pemesan<strong></td>
                         <td width="80%"><?= $nama ?></td>
+                    </tr>
+                    <tr>
+                        <td width="20%"><strong>Nomor Telepon<strong></td>
+                        <td width="80%"><?= $telepon ?></td>
                     </tr>
                     <tr>
                         <td width="20%"><strong>Pilihan Paket<strong></td>

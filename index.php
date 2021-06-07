@@ -3,8 +3,8 @@ session_start();
 include('koneksi/koneksi.php');
 if (isset($_GET['include'])) {
     $include = $_GET['include'];
-    if ($include == "bookingKonfirmasiTambah") { //booking
-        include("include/bookingKonfirmasiTambah.php");
+    if ($include == "buatJanjiKonfirmasi") { //booking
+        include("include/buatJanjiKonfirmasi.php");
     }
 }
 ?>
@@ -33,7 +33,11 @@ if (isset($_GET['include'])) {
             include("include/masuk.php");
         } else if ($include == "buatJanji") {
             include("include/buatJanji.php");
-        } else {
+        } else if ($include == "halamanblog") {
+            include("include/halamanblog.php");
+        } else if ($include == "blog") {
+            include("include/blog.php");
+        }  else {
             include("include/index.php");
         }
     } else {

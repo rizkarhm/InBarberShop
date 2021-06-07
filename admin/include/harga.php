@@ -15,6 +15,13 @@ if (isset($_POST["katakunci"])) {
 if (isset($_SESSION['katakunci_kategori'])) {
     $katakunci_kategori = $_SESSION['katakunci_kategori'];
 }
+
+function rupiah($angka)
+{
+
+    $hasil_rupiah = "Rp " . number_format($angka, 2, ',', '.');
+    return $hasil_rupiah;
+}
 ?>
 
 <section class="content-header">
@@ -90,7 +97,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
                     <?php
                     //$sql_k = "SELECT `id_harga`,`harga` FROM `harga` ORDER BY `harga`";
 
-                    $batas = 2;
+                    $batas = 5;
                     if (!isset($_GET['halaman'])) {
                         $posisi = 0;
                         $halaman = 1;
@@ -125,7 +132,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
                         <tr>
                             <td><?php echo $no; ?></td>
                             <td><?php echo $nama_paket; ?></td>
-                            <td><?php echo $harga_paket; ?></td>
+                            <td><?php echo rupiah($harga_paket); ?></td>
                             <td align="center">
                                 <a href="index.php?include=hargaEdit&data=<?php echo $id_paket; ?>" class="btn btn-xs btn-info"><i class="fas fa-edit"></i> Edit</a>
                                 <a onclick="if(confirm('Apakah anda yakin ingin menghapus harga <?php echo $nama_paket; ?>??')){ location.href='index.php?include=harga&aksi=hapus&data=<?php echo $id_paket; ?>' }" class="btn btn-xs btn-warning"><i class="fas fa-trash"></i> Hapus</a>

@@ -1,5 +1,5 @@
 <div class="container">
-    <a class="navbar-brand" href="index.php?include=index">InBarberShop</a>
+    <a class="navbar-brand" href="index.php?include=index">In Barbershop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
     </button>
@@ -8,8 +8,9 @@
             <li class="nav-item"><a href="index.php?include=index" class="nav-link">Beranda</a></li>
             <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
             <li class="nav-item"><a href="index.php?include=kontak" class="nav-link">Kontak</a></li>
+            <li class="nav-item"><a href="index.php?include=blog" class="nav-link">Blog</a></li>
             <li class="nav-item"><a href="index.php?include=tentang" class="nav-link">Tentang Kami</a></li>
-            <li class="nav-item"><a href="admin/index.php" class="nav-link btn btn-primary">Masuk</a></li>
+            <li class="nav-item"><a href="admin/index.php" target="_blank" class="nav-link btn btn-primary">Masuk</a></li>
         </ul>
     </div>
 </div>

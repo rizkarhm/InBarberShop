@@ -12,52 +12,53 @@
                         </div>
                         <div>
                             <p style="font-size:x-large; color:white">
-                                <a href="index.php?include=index" >&larr;</a>
+                                <a href="index.php?include=index">&larr;</a>
                             </p>
                         </div>
                     </div>
-                    <form action="#" class="appointment-form">
+                    <form action="index.php?include=buatJanjiKonfirmasi" class="appointment-form" method="post">
                         <div class="d-md-flex">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nama Lengkap">
+                                <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" autocomplete="off">
                             </div>
                         </div>
                         <div class="d-md-flex">
                             <div class="form-group">
                                 <div class="input-wrap">
                                     <div class="icon"><span class="ion-md-calendar"></span></div>
-                                    <input type="text" id="appointment_date" class="form-control" placeholder="Tanggal">
+                                    <input type="text" id="appointment_date" name="tanggal" class="form-control" placeholder="Tanggal" autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group ml-md-4">
                                 <div class="input-wrap">
                                     <div class="icon"><span class="ion-ios-clock"></span></div>
-                                    <input type="text" id="appointment_time" class="form-control" placeholder="Waktu">
+                                    <input type="text" id="appointment_time" name="waktu" class="form-control" placeholder="Waktu" autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group ml-md-4">
-                                <input type="text" class="form-control" placeholder="Telepon">
+                                <input type="text" class="form-control" name="telepon" placeholder="Telepon" autocomplete="off">
                             </div>
                         </div>
                         <div class="d-md-flex">
                             <div class="form-group">
                                 <div class="input-wrap">
-                                    <input list="harga" type="text" class="form-control" placeholder="Pilih Paket">
-                                    <datalist id="harga">
-                                        <option value="30k Kids Haircut"></option>
-                                        <option value="50k Gentlemen Cut"></option>
-                                        <option value="50k Wash, Massage & Hairspa"></option>
-                                        <option value="60k Gentlemen Grooming"></option>
-                                        <option value="90k Perm Hair Treatment"></option>
-                                        <option value="100k Basic Hair Color"></option>
-                                        <option value="100k Hair Repair Treatment"></option>
-                                        <option value="150k Grooming + Hair Tattoo"></option>
+                                    <input list="paket" type="text" class="form-control" name="harga" placeholder="Pilih Paket" autocomplete="off">
+                                    <datalist id="paket">
+                                        <?php
+                                        $sql_b = "SELECT * FROM `tabel_harga` order by `id_paket`";
+                                        $query_b = mysqli_query($koneksi, $sql_b);
+                                        while ($data_b = mysqli_fetch_array($query_b)) {
+                                            $id = $data_b['id_paket'];
+                                            $nama = $data_b['nama_paket'];
+                                        ?>
+                                            <option value="<?php echo $nama ?>"></option>
+                                        <?php } ?>
                                     </datalist>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Pesan"></textarea>
+                            <textarea name="keterangan" id="" cols="30" rows="3" class="form-control" placeholder="Pesan"></textarea>
                         </div>
                         <div class="form-group">
                             <!-- <button class="btn btn-primary-light px-4 py-3"><a href="index.php?include=index">Kembali</a></button> -->
@@ -102,3 +103,24 @@
 </body>
 
 </html>
+<?php
+
+function get_times($default = '08:00', $interval = '+30 minutes')
+{
+
+    $output = '';
+
+    $current = strtotime('08:00');
+    $end = strtotime('21:00');
+
+    while ($current <= $end) {
+        $time = date('H:i', $current);
+        $sel = ($time == $default) ? ' selected' : '';
+
+        $output .= "<option value=\"{$time}\"{$sel}>" . date('h.i A', $current) . '</option>';
+        $current = strtotime($interval, $current);
+    }
+
+    return $output;
+}
+?>

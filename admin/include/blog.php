@@ -13,7 +13,9 @@ if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
     $sql_dh = "delete from `tabel_blog` where `id_blog` = '$id_blog'";
     mysqli_query($koneksi, $sql_dh);
 
-    unlink("foto/$foto");
+    if(!empty($foto)){
+      unlink("foto/$foto");
+    }
   }
 }
 
@@ -85,7 +87,8 @@ if (isset($_SESSION['katakunci_kategori'])) {
             <th width="15%">Judul</th>
             <th width="15%">Kategori</th>
             <th width="20%">Insert At</th>
-            <th width="20%">Insert By</th>
+            <th width="10%">Insert By</th>
+            <th width="10%">Update By</th>
             <th width="15%">
               <center>Aksi</center>
             </th>
@@ -95,7 +98,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
           <?php
           //$sql_k = "SELECT `id_user`,`user` FROM `user` ORDER BY `user`";
 
-          $batas = 2;
+          $batas = 5;
           if (!isset($_GET['halaman'])) {
             $posisi = 0;
             $halaman = 1;
@@ -114,7 +117,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
           $jum_data = mysqli_num_rows($query_jum);
           $jum_halaman = ceil($jum_data / $batas);
 
-          $sql_k = "SELECT `b`.`id_blog`, `b`.`insert_at`,`k`.`kategori`,`b`.`judul`, `b`.`insert_by`,`b`.`isi` FROM `tabel_blog` `b` INNER JOIN `tabel_kategori_blog` `k` ON `b`.`id_kategori`=`k`.`id_kategori` INNER JOIN `tabel_user` `u` ON `b`.`insert_by`= `u`.`id_user` ";
+          $sql_k = "SELECT `b`.`id_blog`, `b`.`insert_at`,`k`.`kategori`,`b`.`judul`, `b`.`insert_by`,`b`.`isi`, `b`.`update_by` FROM `tabel_blog` `b` INNER JOIN `tabel_kategori_blog` `k` ON `b`.`id_kategori`=`k`.`id_kategori` INNER JOIN `tabel_user` `u` ON `b`.`insert_by`= `u`.`id_user` ";
           if (!empty($katakunci_kategori)) {
             $sql_k .= " where `judul` LIKE '%$katakunci_kategori%'";
           }
@@ -129,6 +132,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
             $judul = $data_b['judul'];
             $id_user = $data_b['insert_by'];
             $isi = $data_b['isi'];
+            $update = $data_b['update_by'];
           ?>
             <tr>
               <td><?php echo $no ?></td>
@@ -137,6 +141,14 @@ if (isset($_SESSION['katakunci_kategori'])) {
               <td><?php echo $tanggal ?></td>
               <td><?php
                   $sql_nama = "SELECT `nama_user` from `tabel_user` where `id_user`='$id_user'";
+                  $query_nama = mysqli_query($koneksi, $sql_nama);
+                  while ($d_nama = mysqli_fetch_row($query_nama)) {
+                    $nama = $d_nama[0];
+                  }
+                  echo $nama;
+                  ?></td>
+              <td><?php
+                  $sql_nama = "SELECT `nama_user` from `tabel_user` where `id_user`='$update'";
                   $query_nama = mysqli_query($koneksi, $sql_nama);
                   while ($d_nama = mysqli_fetch_row($query_nama)) {
                     $nama = $d_nama[0];

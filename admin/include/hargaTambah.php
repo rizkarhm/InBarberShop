@@ -52,6 +52,12 @@
                         <input type="text" class="form-control" id="harga" value="" name="harga">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="harga" class="col-sm-3 col-form-label">Deksripsi Paket</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="harga" value="" name="deskripsi">
+                    </div>
+                </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">

@@ -6,6 +6,8 @@ if (isset($_SESSION['id_blog'])) {
     $judul = $_POST['judul'];
     $isi = $_POST['isi'];
 
+    $kata = strlen($isi);
+
     $sql_f = "SELECT `gambar` FROM `tabel_blog` WHERE `id_blog`='$id_blog'";
     $query_f = mysqli_query($koneksi, $sql_f);
     while ($data_f = mysqli_fetch_row($query_f)) {
@@ -23,6 +25,8 @@ if (isset($_SESSION['id_blog'])) {
         header("Location:index.php?include=blogEdit&data=$id_blog&notif=editkosong&jenis=judul");
     } else if (empty($isi)) {
         header("Location:index.php?include=blogEdit&data=$id_blog&notif=editkosong&jenis=isi");
+    } elseif ($kata < 150) {
+        header("Location:index.php?include=blogEdit&data=$id_blog&notif=kurangdari150");
     } else if (empty($nama_file)) {
         $sql = "UPDATE `tabel_blog` set `id_kategori`='$id_kategori_blog',`judul`='$judul', `isi`='$isi', `update_by`='$id_user' WHERE `tabel_blog`.`id_blog`='$id_blog'";
         mysqli_query($koneksi, $sql);

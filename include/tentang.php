@@ -26,7 +26,7 @@
       InBarberShop juga menerapkan prosedur protokol kesehatan di dalamnya dengan adanya general cleaning menggunakan desinfektan, penggunaan kip sekali pakai untuk pelanggan, dan penggunaan masker serta face shield bagi kapster.</p>
   </div>
 </section>
-<section class="ftco-section ftco-discount img" style="background-image: url(images/bg_4.jpg);" data-stellar-background-ratio="0.5">
+<section class="ftco-section ftco-discount img" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container">
     <div class="row justify-content-center" data-scrollax-parent="true">
@@ -63,7 +63,7 @@
     <div class="row">
 
       <?php
-      $sql_b = "SELECT * FROM `tabel_user` order by  `id_user`";
+      $sql_b = "SELECT * FROM `tabel_user` order by  `id_user` limit 0,6";
       $query_b = mysqli_query($koneksi, $sql_b);
       while ($data_b = mysqli_fetch_array($query_b)) {
         $nama = $data_b['nama_user'];
@@ -90,54 +90,6 @@
         </div>
 
       <?php } ?>
-      <!-- <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div class="img mb-4" style="background-image: url(images/adaffa.JPG);"></div>
-          <div class="info text-center">
-            <h3><a href="teacher-single.html">Khenaro Daffa Asyrof</a></h3>
-            <span class="position">203140914111007</span>
-            <div class="text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div class="img mb-4" style="background-image: url(images/ayudha.jpeg);"></div>
-          <div class="info text-center">
-            <h3><a href="teacher-single.html">Moh. Yudha Erlangga</a></h3>
-            <span class="position">203140914111012</span>
-            <div class="text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div class="img mb-4" style="background-image: url(images/acitra.jpeg);"></div>
-          <div class="info text-center">
-            <h3><a href="teacher-single.html">Citra Putri Dhaneswara</a></h3>
-            <span class="position">203140914111019</span>
-            <div class="text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-        <div class="staff">
-          <div class="img mb-4" style="background-image: url(images/ahassan.png);"></div>
-          <div class="info text-center">
-            <h3><a href="teacher-single.html">Hassan Jadi</a></h3>
-            <span class="position">203140914111025</span>
-            <div class="text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </section>

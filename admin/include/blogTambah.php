@@ -25,14 +25,14 @@
                     <i class="fas fa-arrow-alt-circle-left"></i> Kembali</a>
             </div>
         </div>
-        <!-- /.card-header -->
-        <!-- form start -->
-        </br></br>
         <div class="col-sm-10">
+            <br>
             <?php
             if (isset($_GET['notif'])) {
                 if ($_GET['notif'] == "tambahkosong") {
                     echo '<div class="alert alert-danger" role="alert">Maaf data ' . $_GET['jenis'] . ' wajib di isi</div>';
+                } elseif ($_GET['notif'] == "kurangdari150") {
+                    echo '<div class="alert alert-danger" role="alert">Maaf isi blog kurang dari 150 karakter</div>';
                 }
             }
             ?>
@@ -59,13 +59,15 @@
                 <div class="form-group row">
                     <label for="judul" class="col-sm-3 col-form-label">Judul</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" name="judul" id="judul" value="">
+                        <input type="text" class="form-control" name="judul" placeholder="Judul" value="">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="isi" class="col-sm-3 col-form-label">Isi</label>
                     <div class="col-sm-7">
-                        <textarea class="form-control" name="isi" id="editor1" rows="12"></textarea>
+                        <label>Minimal Input 150 Karakter</label>
+                        <textarea class="form-control" rows="10" name="isi" id="editor1" onkeyup="count_down(this);"></textarea>
+                        <span class=" text-muted pull-right" name="jumlah_kata" id="count2">0 </span><span class=" text-muted pull-right"> Karakter</span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -93,3 +95,14 @@
     <!-- /.card -->
 
 </section>
+<script>
+    function count_up(obj) {
+        document.getElementById('count1').innerHTML = obj.value.length;
+    }
+
+    function count_down(obj) {
+        var element = document.getElementById('count2');
+
+        element.innerHTML = obj.value.length;
+    }
+</script>

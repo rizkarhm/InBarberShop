@@ -8,6 +8,7 @@ if (isset($_GET['data'])) {
     while ($data_b = mysqli_fetch_array($query_m)) {
         $id_book = $data_b['id_booking'];
         $nama = $data_b['nama'];
+        $telepon = $data_b['telepon'];
         $id_paket = $data_b['id_paket'];
         $tanggal = $data_b['tanggal_booking'];
         $jam = $data_b['jam_booking'];
@@ -53,17 +54,25 @@ if (isset($_GET['data'])) {
             if (isset($_GET['notif'])) {
                 if ($_GET['notif'] == "editkosong") {
                     echo '<div class="alert alert-danger" role="alert">Maaf data ' . $_GET['jenis'] . ' wajib di isi</div>';
+                } else if ($_GET['notif'] == "jampenuh") {
+                    echo '<div class="alert alert-danger" role="alert">Maaf janji pada tanggal ' . $_GET['tanggal'] . ' pukul ' . $_GET['jam'] . ' sudah penuh</div>';
                 }
             }
             ?>
         </div>
         <form class="form-horizontal" action="index.php?include=bookingKonfirmasiEdit" method="post" enctype="multipart/form-data">
-        <br>
+            <br>
             <div class="card-body">
                 <div class="form-group row">
                     <label for="judul" class="col-sm-3 col-form-label">Nama Pemesan</label>
                     <div class="col-sm-7">
                         <input type="text" class="form-control" name="nama" id="judul" value="<?php echo $nama; ?>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="judul" class="col-sm-3 col-form-label">Nomor Telepon</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" name="telepon" id="judul" value="<?php echo $telepon; ?>">
                     </div>
                 </div>
                 <div class="form-group row">
