@@ -1,3 +1,13 @@
+<?php
+if (isset($_GET['notif'])) {
+    if ($_GET['notif'] == "bookingberhasil") {
+        echo "<script>alert('janji Berhasil dibuat!');</script>";
+    } else if ($_GET['notif'] == "jampenuh") {
+        echo "<script>alert('Maaf silahkan pesan di jam lain!');</script>";
+    }
+}
+?>
+
 <body>
     <section class="ftco-section hero-wrap js-fullheight" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="1">
         <div class="overlay"></div>

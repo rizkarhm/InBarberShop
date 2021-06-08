@@ -33,34 +33,37 @@
             if (isset($_GET['notif'])) {
                 if ($_GET['notif'] == "namaKosong") {
                     echo '<div class="alert alert-danger" role="alert">Maaf nama foto wajib di isi</div>';
-                } else if ($_GET['notif'] == "fotoaKosong") {
-                    echo '<div class="alert alert-danger" role="alert">Maaf harga foto wajib di isi</div>';
+                } else if ($_GET['notif'] == "fotoKosong") {
+                    echo '<div class="alert alert-danger" role="alert">Maaf foto wajib di isi</div>';
                 }
             }
             ?> </div>
-        <form class="form-horizontal" method="POST" action="index.php?include=galeriKonfirmasiTambah">
-            <div class="card-body">
-                <div class="form-group row">
-                    <label for="foto" class="col-sm-3 col-form-label">Nama Foto</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="foto" value="" name="nama">
-                    </div>
+        <form class="form-horizontal" method="POST" action="index.php?include=galeriKonfirmasiTambah" enctype="multipart/form-data">
+            <div class=" card-body">
+            <div class="form-group row">
+                <label for="foto" class="col-sm-3 col-form-label">Nama Foto</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="foto" value="" name="nama" placeholder="Nama Foto">
                 </div>
-                <div class="form-group row">
-                    <label for="foto" class="col-sm-3 col-form-label">Foto</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="foto" value="" name="foto">
+            </div>
+            <div class="form-group row">
+                <label for="foto" class="col-sm-3 col-form-label">Foto </label>
+                <div class="col-sm-7">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="foto" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
             </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-info float-right"><i class="fas fa-plus"></i> Tambah</button>
-                </div>
-            </div>
-            <!-- /.card-footer -->
-        </form>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-info float-right"><i class="fas fa-plus"></i> Tambah</button>
+        </div>
+    </div>
+    <!-- /.card-footer -->
+    </form>
     </div>
     <!-- /.card -->
 

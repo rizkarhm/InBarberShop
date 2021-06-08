@@ -103,7 +103,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
           }
 
           //hitung jumlah semua data
-          $sql_jum = "SELECT * from `tabel_user` ";
+          $sql_jum = "SELECT * from `tabel_user`  ";
           if (!empty($katakunci_kategori)) {
             $sql_jum .= " WHERE `nama_user` LIKE '%$katakunci_kategori%'";
           }

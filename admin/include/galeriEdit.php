@@ -45,22 +45,25 @@ if (isset($_GET['data'])) {
             if ($_GET['pesan'] == "namaKosong") {
                 echo '<div class="alert alert-danger" role="alert">Maaf nama foto wajib di isi</div>';
             } else if ($_GET['pesan'] == "fotoKosong") {
-                echo '<div class="alert alert-danger" role="alert">Maaf harga foto wajib di isi</div>';
+                echo '<div class="alert alert-danger" role="alert">Maaf foto wajib di isi</div>';
             }
         }
         ?>
-        <form class="form-horizontal" method="post" action="index.php?include=galeriKonfirmasiEdit">
-            <div class="card-body">
+        <form class="form-horizontal" method="post" action="index.php?include=galeriKonfirmasiEdit" enctype="multipart/form-data">
+            <div class=" card-body">
                 <div class="form-group row">
-                    <label for="foto" class="col-sm-3 col-form-label">Nama Foto</label>
+                    <label class="col-sm-3 col-form-label">Nama Foto</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" id="foto" value="<?php echo $nama; ?>" name="nama">
+                        <input type="text" class="form-control" value="<?php echo $nama; ?>" name="nama">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="foto" class="col-sm-3 col-form-label">Harga Foto</label>
+                    <label for="foto" class="col-sm-3 col-form-label">Foto </label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" id="harga" value="<?php echo $foto; ?>" name="foto">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="foto" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
                     </div>
                 </div>
             </div>
