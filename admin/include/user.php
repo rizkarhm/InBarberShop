@@ -11,7 +11,9 @@ if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
     }
     $sql_dh = "DELETE from `tabel_user` where `id_user` = '$id_user'";
     mysqli_query($koneksi, $sql_dh);
-    unlink("foto/$foto");
+    if (!empty($foto)) {
+      unlink("foto/$foto");
+    }
   }
 }
 
@@ -92,7 +94,7 @@ if (isset($_SESSION['katakunci_kategori'])) {
         <tbody>
           <?php
           //$sql_k = "SELECT `id_user`,`user` FROM `user` ORDER BY `user`";
-
+          $idUser = $_SESSION['id_user'];
           $batas = 5;
           if (!isset($_GET['halaman'])) {
             $posisi = 0;
@@ -112,9 +114,9 @@ if (isset($_SESSION['katakunci_kategori'])) {
           $jum_data = mysqli_num_rows($query_jum);
           $jum_halaman = ceil($jum_data / $batas);
 
-          $sql_k = "SELECT * FROM `tabel_user` ";
+          $sql_k = "SELECT * FROM `tabel_user` where `id_user` != '$idUser' ";
           if (!empty($katakunci_kategori)) {
-            $sql_k .= " where `nama_user` LIKE '%$katakunci_kategori%'";
+            $sql_k .= " && `nama_user` LIKE '%$katakunci_kategori%'";
           }
           $sql_k .= " ORDER BY `id_user` limit $posisi, $batas ";
           $query_k = mysqli_query($koneksi, $sql_k);

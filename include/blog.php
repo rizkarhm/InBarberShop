@@ -52,11 +52,11 @@
 
         <div class="col-md-4 d-flex ftco-animate">
           <div class="blog-entry align-self-stretch">
-            <a href="index.php?include=halamanblog&data=<?= $id_blog ?>" class="block-20" style="background-image: url(images/<?php if ($gambar == NULL || $gambar == '') {
-             echo "work-6.jpg";
- } else {
-                                                                                                                                echo $gambar;
-                                                                                                                              } ?>);>"></a>
+            <a href="index.php?include=halamanblog&data=<?= $id_blog ?>" class="block-20" style="background-image: url(admin/foto/<?php if ($gambar == NULL || $gambar == '') {
+                                                                                                                                    echo "image.png";
+                                                                                                                                  } else {
+                                                                                                                                    echo $gambar;
+                                                                                                                                  } ?>);>"></a>
             <div class="text py-4 d-block">
               <div class="meta">
                 <div><?= $insert_at ?></div>

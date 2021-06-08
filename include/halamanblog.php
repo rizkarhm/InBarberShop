@@ -28,11 +28,11 @@ if (isset($_GET['data'])) {
 
                         <h2 class="mb-6 text-center"><?= $judul ?></h2>
                         <center>
-                            <img src="images/<?php if ($gambar == '') {
-                                                    echo "work-6.jpg";
-                                                } else {
-                                                    echo $gambar;
-                                                } ?>" class="images-fluid" width="400;">
+                            <img src="admin/foto/<?php if ($gambar == '') {
+                                                        echo "work-6.jpg";
+                                                    } else {
+                                                        echo $gambar;
+                                                    } ?>" class="images-fluid" width="400;">
                         </center>
                         <br>
                         <br>

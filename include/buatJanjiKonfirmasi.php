@@ -12,6 +12,7 @@ $ket = $_POST['keterangan'];
 $nama = $_POST['nama'];
 $telepon = $_POST['telepon'];
 
+
 // $tgl = date_create($tanggal);
 // $tgl_baru = date_format($tgl, "m/d/Y");
 
@@ -19,19 +20,22 @@ $sql_a = "SELECT * FROM `tabel_booking` where `jam_booking`='$waktu' && `tanggal
 $query_a = mysqli_query($koneksi, $sql_a);
 $jumlah = mysqli_num_rows($query_a);
 
-if ($jumlah == 0) {
-    if (empty($id)) {
-        header("Location:index.php?include=buatJanji&data=$id_buku&notif=editkosong&jenis=id");
-    } else if (empty($tanggal)) {
-        header("Location:index.php?include=buatJanji&data=$id_buku&notif=editkosong&jenis=judul");
-    } else if (empty($waktu)) {
-        header("Location:index.php?include=buatJanji&data=$id_buku&notif=editkosong&jenis=isi");
-    } else {
-        $sql = "INSERT into `tabel_booking` values ('', '$nama', '$telepon', '$id', '$tanggal', '$waktu', '$ket', NULL, 'pending')";
-        mysqli_query($koneksi, $sql);
-        //echo $sql;
-        header("Location:index.php?include=buatJanji&notif=bookingberhasil");
-    }
-} else {
+
+if (empty($nama)) {
+    header("Location:index.php?include=buatJanji&jenis=nama");
+} else if (empty($telepon)) {
+    header("Location:index.php?include=buatJanji&jenis=telepon");
+} else if (empty($tanggal)) {
+    header("Location:index.php?include=buatJanji&jenis=tanggal");
+} else if (empty($id)) {
+    header("Location:index.php?include=buatJanji&jenis=paket");
+} else if (empty($waktu)) {
+    header("Location:index.php?include=buatJanji&jenis=waktu");
+} else if ($jumlah == 0) {
+    $sql = "INSERT into `tabel_booking` values ('', '$nama', '$telepon', '$id', '$tanggal', '$waktu', '$ket', NULL, 'pending')";
+    mysqli_query($koneksi, $sql);
+    //echo $sql;
+    header("Location:index.php?include=buatJanji&notif=bookingberhasil");
+} else if ($jumlah >= 0) {
     header("Location:index.php?include=buatJanji&notif=jampenuh&jam=$waktu&tanggal=$tanggal");
 }
