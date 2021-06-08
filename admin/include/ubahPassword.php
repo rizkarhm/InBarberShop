@@ -41,7 +41,6 @@ if (isset($_SESSION['id_user'])) {
         <h6>
           <i class="text-blue"><i class="fas fa-info-circle"></i> Silahkan memasukkan password lama dan password baru Anda untuk mengubah password.</i>
         </h6><br>
-        <div class="col-sm-10">
           <?php
           if (isset($_GET['notif'])) {
             if ($_GET['notif'] == "lamakosong") {
@@ -54,10 +53,11 @@ if (isset($_SESSION['id_user'])) {
               echo '<div class="alert alert-success" role="alert">Password berhasil diubah</div>';
             } elseif ($_GET['notif'] == "lamatidaksama") {
               echo '<div class="alert alert-danger" role="alert">Password Lama Salah</div>';
+            } elseif ($_GET['notif'] == "ubahberhasil") {
+              echo '<div class="alert alert-success" role="alert">Password berhasil diubah</div>';
             }
           }
           ?>
-        </div>
         <div class="form-group row">
           <label for="pass_lama" class="col-sm-3 col-form-label">Password Lama</label>
           <div class="col-sm-7">
