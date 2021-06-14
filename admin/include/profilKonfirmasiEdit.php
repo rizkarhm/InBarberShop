@@ -16,14 +16,14 @@ if (isset($_SESSION['id_user'])) {
     $direktori = 'foto/' . $nama_file;
 
     if (empty($nama)) {
-        header("Location:index.php?include=proflEdit&notif=editkosong&jenis=nama");
+        header("Location:index.php?include=profilEdit&notif=editkosong&jenis=nama");
     } else if (empty($email)) {
-        header("Location:index.php?include=proflEdit&notif=editkosong&jenis=email");
+        header("Location:index.php?include=profilEdit&notif=editkosong&jenis=email");
     } elseif ($foto == 'default.png') {
         if (move_uploaded_file($lokasi_file, $direktori)) {
             $sql = "UPDATE `tabel_user` set `nama_user`='$nama', `email_user`='$email', `foto_user`='$nama_file' where `id_user`= '$id_user'";
             mysqli_query($koneksi, $sql);
-            header("Location:index.php?include=profi&notif=editberhasil");
+            header("Location:index.php?include=profil&notif=editberhasil");
         }
     } else {
         if (move_uploaded_file($lokasi_file, $direktori)) {

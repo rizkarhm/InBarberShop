@@ -25,11 +25,19 @@ if (empty($nama)) {
     header("Location:index.php?include=bookingTambah&jenis=paket");
 } else if (empty($waktu)) {
     header("Location:index.php?include=bookingTambah&jenis=waktu");
-} else if ($jumlah == 0) {
-    $sql = "INSERT into `tabel_booking` values ('', '$nama', '$telepon', '$id_paket', '$tanggal', '$waktu', '$ket', NULL, 'pending')";
+} 
+else {
+    $sql = "INSERT into `tabel_booking` values ('', '$nama', '$telepon', '$id_paket', '$tgl_baru', '$waktu', '$ket', NULL, 'pending')";
     mysqli_query($koneksi, $sql);
     //echo $sql;
     header("Location:index.php?include=booking&notif=bookingberhasil");
-} else if ($jumlah > 0) {
-    header("Location:index.php?include=bookingTambah&notif=jampenuh&jam=$waktu&tanggal=$tanggal");
 }
+// else if ($jumlah == 0) {
+//     $sql = "INSERT into `tabel_booking` values ('', '$nama', '$telepon', '$id_paket', '$tgl_baru', '$waktu', '$ket', NULL, 'pending')";
+//     mysqli_query($koneksi, $sql);
+//     //echo $sql;
+//     header("Location:index.php?include=booking&notif=bookingberhasil");
+// } 
+// else if ($jumlah > 0) {
+//     header("Location:index.php?include=bookingTambah&notif=jampenuh&jam=$waktu&tanggal=$tgl_baru");
+// }

@@ -145,6 +145,12 @@ if (isset($_GET['include'])) {
                         else if ($include == "profilEdit") { //profil
                             include("include/profilEdit.php");
                         } 
+                        else if ($include == "feedback") { //feedback
+                            include("include/feedback.php");
+                        } 
+                        else if ($include == "feedbackDetail") {
+                            include("include/feedbackDetail.php");
+                        }
                         else if ($include == "ubahPassword") { //ubahPassword
                             include("include/ubahPassword.php");
                         } else {

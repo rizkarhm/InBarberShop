@@ -31,11 +31,19 @@ if (empty($nama)) {
     header("Location:index.php?include=buatJanji&jenis=paket");
 } else if (empty($waktu)) {
     header("Location:index.php?include=buatJanji&jenis=waktu");
-} else if ($jumlah == 0) {
-    $sql = "INSERT into `tabel_booking` values ('', '$nama', '$telepon', '$id', '$tanggal', '$waktu', '$ket', NULL, 'pending')";
+} 
+else {
+        $sql = "INSERT into `tabel_booking` values ('', '$nama', '$telepon', '$id', '$tanggal', '$waktu', '$ket', NULL, 'pending')";
     mysqli_query($koneksi, $sql);
     //echo $sql;
     header("Location:index.php?include=buatJanji&notif=bookingberhasil");
-} else if ($jumlah >= 0) {
-    header("Location:index.php?include=buatJanji&notif=jampenuh&jam=$waktu&tanggal=$tanggal");
 }
+// else if ($jumlah == 0) {
+//     $sql = "INSERT into `tabel_booking` values ('', '$nama', '$telepon', '$id', '$tanggal', '$waktu', '$ket', NULL, 'pending')";
+//     mysqli_query($koneksi, $sql);
+//     //echo $sql;
+//     header("Location:index.php?include=buatJanji&notif=bookingberhasil");
+// } 
+// else if ($jumlah > 0) {
+//     header("Location:index.php?include=buatJanji&notif=jampenuh&jam=$waktu&tanggal=$tanggal");
+// }

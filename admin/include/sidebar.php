@@ -77,6 +77,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="index.php?include=feedback" class="nav-link">
+            <i class="nav-icon fas fa-comment-alt"></i>
+            <p>
+              Feedback
+            </p>
+          </a>
+        </li>
         <?php if (isset($_SESSION['level'])) {
           if ($_SESSION['level'] == "Superadmin") { ?>
             <li class="nav-item">

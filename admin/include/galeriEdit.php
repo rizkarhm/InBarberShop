@@ -40,15 +40,17 @@ if (isset($_GET['data'])) {
         <!-- /.card-header -->
         <!-- form start -->
         </br>
+        <div class="col-sm-10">
         <?php
-        if (isset($_GET['pesan'])) {
-            if ($_GET['pesan'] == "namaKosong") {
+        if (isset($_GET['notif'])) {
+            if ($_GET['notif'] == "namaKosong") {
                 echo '<div class="alert alert-danger" role="alert">Maaf nama foto wajib di isi</div>';
-            } else if ($_GET['pesan'] == "fotoKosong") {
+            } else if ($_GET['notif'] == "fotoKosong") {
                 echo '<div class="alert alert-danger" role="alert">Maaf foto wajib di isi</div>';
             }
         }
         ?>
+        </div>
         <form class="form-horizontal" method="post" action="index.php?include=galeriKonfirmasiEdit" enctype="multipart/form-data">
             <div class=" card-body">
                 <div class="form-group row">

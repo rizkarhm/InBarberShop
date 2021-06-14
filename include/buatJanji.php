@@ -7,7 +7,6 @@ if (isset($_GET['notif'])) {
     }
 }
 ?>
-
 <body>
     <section class="ftco-section hero-wrap js-fullheight" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="1">
         <div class="overlay"></div>

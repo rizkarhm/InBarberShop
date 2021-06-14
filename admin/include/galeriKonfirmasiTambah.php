@@ -7,12 +7,12 @@ $direktori = '../images/' . $nama_file;
 
 if (empty($nama)) {
     header("Location:index.php?include=galeriTambah&notif=namaKosong&jenis=nama");
-} elseif (empty($nama_file)) {
-    header("Location:index.php?include=galeriTambah&notif=fotoKosong&jenis=foto");
 } elseif (!empty($nama_file)) {
     if (move_uploaded_file($lokasi_file, $direktori)) {
         $sql = "INSERT INTO `tabel_galery` values ('','$nama', '$nama_file')";
         mysqli_query($koneksi, $sql);
         header("Location:index.php?include=galeri&notif=tambahberhasil");
     }
+} elseif (empty($nama_file)) {
+    header("Location:index.php?include=galeriTambah&notif=fotoKosong&jenis=foto");
 }

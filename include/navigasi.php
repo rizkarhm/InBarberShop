@@ -7,9 +7,9 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a href="index.php?include=index" class="nav-link">Beranda</a></li>
             <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
-            <li class="nav-item"><a href="index.php?include=kontak" class="nav-link">Kontak</a></li>
             <li class="nav-item"><a href="index.php?include=blog" class="nav-link">Blog</a></li>
             <li class="nav-item"><a href="index.php?include=tentang" class="nav-link">Tentang Kami</a></li>
+            <li class="nav-item"><a href="index.php?include=kontak" class="nav-link">Kontak</a></li>
             <li class="nav-item"><a href="admin/index.php" target="_blank" class="nav-link btn btn-primary">Masuk</a></li>
         </ul>
     </div>

@@ -40,15 +40,17 @@ if (isset($_GET['data'])) {
         <!-- /.card-header -->
         <!-- form start -->
         </br>
+        <div class="col-sm-10">
         <?php
         if (isset($_GET['pesan'])) {
             if ($_GET['pesan'] == "namaKosong") {
                 echo '<div class="alert alert-danger" role="alert">Maaf nama kontak wajib di isi</div>';
-            } else if ($_GET['pesan'] == "hargaKosong") {
+            } else if ($_GET['pesan'] == "kontakKosong") {
                 echo '<div class="alert alert-danger" role="alert">Maaf link kontak wajib di isi</div>';
             }
         }
         ?>
+        </div>
         <form class="form-horizontal" method="post" action="index.php?include=kontakKonfirmasiEdit">
             <div class="card-body">
                 <div class="form-group row">

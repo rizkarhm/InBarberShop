@@ -6,6 +6,9 @@ if (isset($_GET['include'])) {
     if ($include == "buatJanjiKonfirmasi") { //booking
         include("include/buatJanjiKonfirmasi.php");
     }
+    if ($include == "kontakKonfirmasi") { //kontak
+        include("include/kontakKonfirmasi.php");
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -37,7 +40,7 @@ if (isset($_GET['include'])) {
             include("include/halamanblog.php");
         } else if ($include == "blog") {
             include("include/blog.php");
-        }  else {
+        } else {
             include("include/index.php");
         }
     } else {

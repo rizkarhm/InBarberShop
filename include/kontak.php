@@ -1,22 +1,7 @@
   <?php
-  if ((isset($_POST['aksi']))) {
-    if ($_POST['kirim']) {
-      $admin = 'rizkarahma67@gmail.com'; //ganti email dg email admin (email penerima pesan)
-
-      $nama  = htmlentities($_POST['nama']);
-      $email  = htmlentities($_POST['email']);
-      $judul  = htmlentities($_POST['judul']);
-      $pesan  = htmlentities($_POST['pesan']);
-
-      $pengirim  = 'Dari: ' . $nama . ' <' . $email . '>';
-
-      if (mail($admin, $judul, $pesan, $pengirim)) {
-        echo 'SUCCESS: Pesan anda berhasil di kirim. <a href="index.php?include=kontak">Kembali</a>';
-      } else {
-        echo 'ERROR: Pesan anda gagal di kirim silahkan coba lagi. <a href="index.php?include=kontak">Kembali</a>';
-      }
-    } else {
-      header("Location: index.php?include=kontak");
+  if (isset($_GET['notif'])) {
+    if ($_GET['notif'] == "tambahberhasil") {
+      echo "<script>alert('Pesan Berhasil dikirim!');</script>";
     }
   }
   ?>
@@ -58,7 +43,7 @@
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-6 ftco-animate">
-          <form action="index.php?include=kontak&aksi=kirim" method="post" class="contact-form">
+          <form action="index.php?include=kontakKonfirmasi" method="post" class="contact-form">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
@@ -72,10 +57,10 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Subject" name="judul">
+              <input type="text" class="form-control" placeholder="Subject" name="subject">
             </div>
             <div class="form-group">
-              <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Pesan" name="pesan"></textarea>
+              <textarea  id="" cols="30" rows="7" class="form-control" placeholder="Pesan" name="pesan"></textarea>
             </div>
             <div class="form-group">
               <input type="submit" value="Kirim Pesan" name="kirim" class="btn btn-primary py-3 px-5">

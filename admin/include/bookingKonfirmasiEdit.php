@@ -26,12 +26,19 @@ if (isset($_SESSION['id_booking'])) {
         header("Location:index.php?include=bookingEdit&data=$id_booking&notif=editkosong&jenis=paket");
     } else if (empty($time)) {
         header("Location:index.php?include=bookingEdit&data=$id_booking&notif=editkosong&jenis=waktu");
-    } else if ($jumlah == 0) {
+    } else {
         $sql = "UPDATE `tabel_booking` set `nama`='$nama',`telepon`='$telepon', `id_paket`='$id_paket',`tanggal_booking`='$tgl_baru', `jam_booking`='$time', `keterangan_booking`='$keterangan' WHERE `id_booking`='$id_booking'";
         mysqli_query($koneksi, $sql);
         //echo $sql;
         header("Location:index.php?include=booking&notif=editberhasil");
-    } else if ($jumlah > 0) {
-        header("Location:index.php?include=bookingEdit&data=$id_booking&notif=jampenuh&jam=$time&tanggal=$tanggal");
-    }
+    } 
+    // else if ($jumlah == 0) {
+    //     $sql = "UPDATE `tabel_booking` set `nama`='$nama',`telepon`='$telepon', `id_paket`='$id_paket',`tanggal_booking`='$tgl_baru', `jam_booking`='$time', `keterangan_booking`='$keterangan' WHERE `id_booking`='$id_booking'";
+    //     mysqli_query($koneksi, $sql);
+    //     //echo $sql;
+    //     header("Location:index.php?include=booking&notif=editberhasil");
+    // } 
+    // else if ($jumlah > 0) {
+    //     header("Location:index.php?include=bookingEdit&data=$id_booking&notif=jampenuh&jam=$time&tanggal=$tanggal");
+    // }
 }

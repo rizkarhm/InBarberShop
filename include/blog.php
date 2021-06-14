@@ -53,7 +53,7 @@
         <div class="col-md-4 d-flex ftco-animate">
           <div class="blog-entry align-self-stretch">
             <a href="index.php?include=halamanblog&data=<?= $id_blog ?>" class="block-20" style="background-image: url(admin/foto/<?php if ($gambar == NULL || $gambar == '') {
-                                                                                                                                    echo "image.png";
+                                                                                                                                   echo "image.png";
                                                                                                                                   } else {
                                                                                                                                     echo $gambar;
                                                                                                                                   } ?>);>"></a>
